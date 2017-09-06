@@ -1,0 +1,27 @@
+.models-table-wrapper {
+	.inner-table-wrapper {
+		margin-top: 20px;
+	}
+	.row {
+		@percent: 50%;
+		&-info td{
+			background: lighten(@primary-color, @percent);
+		}
+		&-success td{
+			background: lighten(@success-color, @percent);
+		}
+		&-error td{
+			background: lighten(@danger-color, @percent);
+		}
+		&-warning td{
+			background: lighten(@warning-color, @percent);;
+		}
+	}
+	.column-wrapper {
+		display: inline-block;
+		-ms-word-break: break-all;
+	    word-break: break-all;
+	    white-space: normal;
+	}
+}
+

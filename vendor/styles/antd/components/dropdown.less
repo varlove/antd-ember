@@ -1,0 +1,74 @@
+@import "../mixins/index";
+@dropdown-prefix-cls: ~"@{css-prefix}dropdown";
+
+.@{dropdown-prefix-cls} {
+  position: relative;
+
+  /**
+   * dropdown trigger
+   */
+  &-trigger {
+    color: @primary-color;
+    cursor: pointer;
+  }
+
+  /**
+   * dropdown overlay
+   */
+  &-active &-overlay {
+    display: inline-block;
+  }
+
+  &-overlay {
+    display: none;
+    z-index: 1070;
+    font-weight: normal;
+    line-height: 1.5;
+    padding-top: 4px;
+    min-width: 100%;
+    position: absolute;
+    left: 0;
+    top: 18px;
+    background-color: #fff;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    background-clip: padding-box;
+    border: 1px solid @border-color-base;
+    .@{css-prefix}menu{
+      min-width: 140px;
+      border-bottom: none;
+      &-item {
+        line-height: 30px;
+        padding: 15px 15px;
+        width: 100%;
+        border-bottom: none !important;
+        &-active {
+          border-bottom: none !important;
+        }
+        &:hover {
+          background-color: lighten(@primary-color, 40%);
+        }
+      } 
+    }
+    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+      animation-name: antSlideUpIn;
+    }
+
+    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+      animation-name: antSlideDownIn;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+      animation-name: antSlideUpOut;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+      animation-name: antSlideDownOut;
+    }
+  }
+}
+
+ 
+ 

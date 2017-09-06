@@ -1,0 +1,35 @@
+<span role="button">
+	{{#if _ajaxUpload}}
+		{{#io-ajax-upload
+			parent=this
+			name=name
+			action=action
+			headers=headers
+			multipart=multipart
+			dragdrop=_dragdrop
+			withCredentials=withCredentials
+			beforeUpload="beforeUpload"
+			onStart="onStart"
+			onProgress="onProgress"
+			onSuccess="onSuccess"
+			data=data
+			onError="onError"}} 
+			{{yield}}
+		{{/io-ajax-upload}}
+	{{else}}
+		{{#io-iframe-upload
+			parent=this
+			name=name
+			action=action
+			headers=headers
+			withCredentials=withCredentials
+			beforeUpload="beforeUpload"
+			onStart="onStart"
+			onProgress="onProgress"
+			onSuccess="onSuccess"
+			data=data
+			onError="onError"}} 
+			{{yield}}
+		{{/io-iframe-upload}}
+	{{/if}}
+</span>

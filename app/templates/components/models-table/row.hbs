@@ -1,0 +1,29 @@
+
+<tr class="{{if record.row_class record.row_class}}">
+  {{#if showIndexNumber}}
+    <td>{{record.__index}}</td>
+  {{/if}}
+  {{#each processedColumns as |column|}}
+    {{#if column.isVisible}}
+      <td class={{column.className}}>
+        {{!-- max width limited--}}
+        {{#if column.maxWidth}}
+          <div class="column-wrapper" style="max-width: {{column.maxWidth}}">
+            {{#if column.template}}
+              {{partial column.template}}
+            {{else}}
+              {{get record column.propertyName}}
+            {{/if}}
+          </div>
+        {{!-- normal --}}
+        {{else}}
+            {{#if column.template}}
+              {{partial column.template}}
+            {{else}}
+              {{get record column.propertyName}}
+            {{/if}}
+        {{/if}}
+      </td>
+    {{/if}}
+  {{/each}}
+</tr>

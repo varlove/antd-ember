@@ -1,0 +1,48 @@
+<div class="{{classes.outerTableWrapper}} io-table io-table-large">
+  {{! global filter start }}
+  {{#if showGlobalFilter}}
+    {{partial globalFilterTemplate}}
+  {{/if}}
+  {{! global filter end }}
+  {{! columns dropdown start }}
+  {{#if showColumnsDropdown}}
+    {{partial columnsDropdownTemplate}}
+  {{/if}}
+  {{! columns dropdown end }}
+
+  <!-- Div needed by Firefox to reset floating positioning -->
+  <div style="clear:both"/>
+  
+  {{#if useFixedHeader}}
+    <div class="io-table-header">
+      <table>
+        {{partial 'components/models-table/table-colgroup'}}
+        {{partial 'components/models-table/table-header'}}
+      </table>
+    </div>
+    <div class="io-table-body">
+      <table>
+        {{partial 'components/models-table/table-colgroup'}}
+        {{partial 'components/models-table/table-body'}}
+      </table>
+    </div>
+  {{else}}
+    <div class="io-table-body">
+      <table>
+        {{partial 'components/models-table/table-colgroup'}}
+        {{! table header start }}
+        {{partial 'components/models-table/table-header'}}
+        {{! table header end }}
+        {{! table body start }}
+        {{partial 'components/models-table/table-body'}}
+        {{! table body end }}
+      </table>
+    </div>
+  {{/if}}
+
+  {{! table footer start }}
+  {{#if showTableFooter}}
+    {{partial tableFooterTemplate}}
+  {{/if}}
+  {{! table footer end }}
+</div>
